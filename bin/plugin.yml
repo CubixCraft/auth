@@ -1,0 +1,46 @@
+name: auth
+version: 0.0.0
+description: Force specific players to authenticate with a password
+author: silvinci
+authors: [silvinci, CubixCraft]
+website: https://github.com/CubixCraft/auth
+
+main: com.github.cubixcraft.auth.Main
+
+commands:
+  login:
+    description: login with a password
+    permission: auth.login
+    usage: |
+      /<command> [password]
+  register:
+    description: register with a password
+    permission: auth.register
+    usage: |
+      /<command> [password]
+  unregister:
+    description: unregister yourself
+    permission: auth.unregister
+    usage: |
+      /<command>
+  changepw:
+    description: change your password
+    permission: auth.changepassword
+    usage: |
+      /<command> [password]
+permissions:
+  auth.admin:
+    description: Change play passwords
+    default: op
+  auth.login:
+    description: Forces to login
+    default: true
+    children:
+    - auth.register
+    - auth.unregister
+  auth.register:
+    description: Forces to register
+    default: true
+  auth.unregister:
+    description: Forces to register
+    default: true
